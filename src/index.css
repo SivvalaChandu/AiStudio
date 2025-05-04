@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@layer components {
+  .chat-container {
+    @apply w-full h-full mx-auto;
+  }
+
+  .chat-messages {
+    @apply bg-slate-800/50 rounded-2xl p-1 h-[calc(100vh-6rem)] flex flex-col;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center h-full text-center;
+  }
+
+  .empty-icon {
+    @apply text-4xl mb-4 animate-pulse text-slate-400;
+  }
+
+  .message {
+    @apply flex space-y-4 pr-2;
+  }
+
+  .message.bot {
+    @apply justify-start;
+  }
+
+  .message.user {
+    @apply justify-end;
+  }
+
+  .message-content {
+    @apply max-w-[90%] p-4 rounded-2xl;
+  }
+
+  .message.bot .message-content {
+    @apply bg-slate-700/50;
+  }
+
+  .message.user .message-content {
+    @apply bg-cyan-500/90 text-white;
+  }
+
+  .chat-input {
+    @apply mt-4 flex gap-2;
+  }
+
+  .chat-input input {
+    @apply flex-1 bg-slate-700/50 rounded-3xl p-4 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-slate-400;
+  }
+
+  .chat-input button {
+    @apply w-14 p-4 bg-cyan-500/90 rounded-full hover:bg-cyan-500 transition-colors;
+  }
+
+  .generator-container {
+    @apply space-y-8 max-w-3xl mx-auto p-4;
+  }
+
+  .generator-form {
+    @apply grid md:grid-cols-2 gap-6 bg-slate-800/50 rounded-2xl p-6;
+  }
+
+  .generator-form input,
+  .generator-form select {
+    @apply w-full bg-slate-700/50 border border-slate-700 rounded-xl p-3 focus:ring-2 focus:ring-cyan-400 placeholder-slate-400;
+  }
+
+  .generator-form button {
+    @apply w-full bg-cyan-500/90 hover:bg-cyan-500 px-8 py-4 rounded-xl font-medium transition-all flex items-center justify-center gap-2;
+  }
+
+  .muscle-groups {
+    @apply grid grid-cols-2 gap-2;
+  }
+
+  .muscle-groups button {
+    @apply p-3 rounded-xl transition-all bg-slate-700/50 hover:bg-slate-600/50;
+  }
+
+  .muscle-groups button.active {
+    @apply bg-cyan-500/90 text-white;
+  }
+
+  .recipe-results,
+  .workout-results {
+    @apply bg-slate-800/50 border border-slate-700 rounded-2xl p-6;
+  }
+
+  .markdown-table {
+    @apply w-full border-collapse my-4;
+  }
+
+  .markdown-th {
+    @apply bg-slate-700/50 p-3 border border-slate-600;
+  }
+
+  .markdown-td {
+    @apply p-3 border border-slate-700;
+  }
+
+  .typewriter-effect {
+    @apply whitespace-pre-wrap font-sans leading-relaxed;
+  }
+
+  .typing-indicator {
+    @apply inline-block w-2 h-4 bg-cyan-400 ml-1;
+  }
+}
